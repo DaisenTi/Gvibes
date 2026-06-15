@@ -17,7 +17,7 @@
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      padding: 2rem 3rem;
+      padding: 1rem 3rem;
       display: flex; justify-content: space-between; align-items: center;
       background: rgba(27,94,59,0.95);
       backdrop-filter: blur(10px);
@@ -27,7 +27,7 @@
     .nav-links a {
       color: rgba(255,255,255,0.85);
       text-decoration: none;
-      font-size: 1.78rem;
+      font-size: 0.78rem;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -50,7 +50,7 @@
       width: 100%; height: 100%;
       object-fit: cover;
       object-position: center center;
-    /*  object-zoom: 1;  */         /* referencia visual */
+     /* object-zoom: 1;      */     /* referencia visual */
       transform: scale(1);      /* ← sube este número para más zoom, bájalo para ver más */
       transform-origin: center center;
       filter: brightness(0.45);
@@ -131,20 +131,22 @@
     .nosotros {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 70vh;
+      align-items: stretch;
     }
     .nosotros-img {
-      min-height: 500px;
       overflow: hidden;
       position: relative;
+      /* imagen 16:9 en columna de 50% ancho = altura 28.125vw */
+      aspect-ratio: 16 / 9;
+      align-self: start;
+      width: 100%;
     }
     .nosotros-img img {
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: center 15%;
+      object-position: center center;
       display: block;
       position: absolute; inset: 0;
-      transform: scale(1);
     }
     .nosotros-texto {
       background: var(--verde);
@@ -220,7 +222,8 @@
 
     .producto {
       position: relative; overflow: hidden;
-      min-height: 85vh;
+      /* foto 16:9 ocupa 50% del ancho de pantalla → altura = 50vw × 9/16 */
+      height: calc(50vw * 9 / 16);
       display: flex; align-items: flex-end;
       cursor: pointer;
     }
@@ -231,13 +234,12 @@
     }
     .producto-bg img {
       width: 100%; height: 100%;
-      object-fit: contain;      /* ← muestra la imagen completa sin recortar */
+      object-fit: cover;
       object-position: center center;
-      background-color: #000;   /* fondo negro donde no llega la imagen */
       display: block;
       transition: transform 0.6s ease;
     }
-    .producto:hover .producto-bg img { transform: scale(2); } /* sin zoom al hover */
+    .producto:hover .producto-bg img { transform: scale(1.06); }
 
     .producto-overlay {
       position: absolute; inset: 0;
@@ -451,8 +453,7 @@
         grid-template-columns: 1fr;
       }
       .nosotros-img {
-        min-height: 380px;
-        background-position: center 20%;
+        aspect-ratio: 16 / 9;
       }
       .nosotros-texto {
         padding: 3.5rem 2.5rem;
@@ -461,7 +462,8 @@
         grid-template-columns: 1fr 1fr;
       }
       .producto {
-        min-height: 60vh;
+        /* sigue siendo 2 col en tablet → misma fórmula */
+        height: calc(50vw * 9 / 16);
       }
       .contacto-inner {
         grid-template-columns: 1fr;
@@ -513,7 +515,8 @@
         grid-template-columns: 1fr;
       }
       .producto {
-        min-height: 70vh;
+        /* 1 columna en celular → foto ocupa 100% del ancho */
+        height: calc(100vw * 9 / 16);
       }
       .producto-info {
         padding: 1.75rem 1.25rem;
