@@ -17,7 +17,7 @@
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      padding: 1rem 3rem;
+      padding: 2rem 3rem;
       display: flex; justify-content: space-between; align-items: center;
       background: rgba(27,94,59,0.95);
       backdrop-filter: blur(10px);
@@ -27,7 +27,7 @@
     .nav-links a {
       color: rgba(255,255,255,0.85);
       text-decoration: none;
-      font-size: 0.78rem;
+      font-size: 1.78rem;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -50,6 +50,9 @@
       width: 100%; height: 100%;
       object-fit: cover;
       object-position: center center;
+    /*  object-zoom: 1;  */         /* referencia visual */
+      transform: scale(1);      /* ← sube este número para más zoom, bájalo para ver más */
+      transform-origin: center center;
       filter: brightness(0.45);
       display: block;
     }
@@ -104,8 +107,13 @@
 
     /* Pills de atributos en hero */
     .hero-pills {
-      display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
       margin-bottom: 2.5rem;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .hero-pill {
       background: rgba(255,255,255,0.1);
@@ -114,8 +122,9 @@
       font-size: 0.72rem;
       font-weight: 500;
       letter-spacing: 0.08em;
-      padding: 0.4rem 1rem;
+      padding: 0.5rem 1rem;
       border-radius: 100px;
+      text-align: center;
     }
 
     /* ── SECCIÓN QUIÉNES SOMOS ── */
@@ -135,6 +144,7 @@
       object-position: center 15%;
       display: block;
       position: absolute; inset: 0;
+      transform: scale(1);
     }
     .nosotros-texto {
       background: var(--verde);
@@ -221,12 +231,13 @@
     }
     .producto-bg img {
       width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center 10%;
+      object-fit: contain;      /* ← muestra la imagen completa sin recortar */
+      object-position: center center;
+      background-color: #000;   /* fondo negro donde no llega la imagen */
       display: block;
       transition: transform 0.6s ease;
     }
-    .producto:hover .producto-bg img { transform: scale(1.04); }
+    .producto:hover .producto-bg img { transform: scale(2); } /* sin zoom al hover */
 
     .producto-overlay {
       position: absolute; inset: 0;
