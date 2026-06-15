@@ -7,512 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 
-  <style>
-    :root {
-      --verde:      #1B5E3B;   /* verde oscuro marca */
-      --verde-med:  #2E7D55;
-      --amarillo:   #C9A82C;   /* dorado/amarillo marca */
-      --lima:       #A8C63D;   /* verde lima marca */
-      --blanco:     #FFFFFF;
-      --crema:      #F8F6F1;
-      --texto:      #1A1A1A;
-      --gris:       #666;
-      --fuente: 'Montserrat', sans-serif;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--fuente); background: var(--crema); color: var(--texto); }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      padding: 1rem 3rem;
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(27,94,59,0.95);
-      backdrop-filter: blur(10px);
-    }
-    .nav-logo img { height: 48px; }
-    .nav-links { list-style: none; display: flex; gap: 2rem; }
-    .nav-links a {
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--amarillo); }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      position: relative;
-      overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('images/1.jpg');
-      background-size: cover;
-      background-position: center;
-      filter: brightness(0.45);
-    }
-    .hero-contenido {
-      position: relative; z-index: 1;
-      text-align: center;
-      padding: 8rem 2rem 4rem;
-      max-width: 800px;
-    }
-    .hero-badge {
-      display: inline-block;
-      background: var(--amarillo);
-      color: var(--verde);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.4rem 1.2rem;
-      border-radius: 100px;
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 5rem);
-      font-weight: 800;
-      color: var(--blanco);
-      line-height: 1.05;
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 span { color: var(--amarillo); }
-    .hero p {
-      color: rgba(255,255,255,0.75);
-      font-size: 1rem;
-      line-height: 1.8;
-      font-weight: 300;
-      max-width: 520px;
-      margin: 0 auto 2.5rem;
-    }
-    .hero-cta {
-      display: inline-block;
-      background: var(--amarillo);
-      color: var(--verde);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 1rem 2.5rem;
-      border-radius: 100px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-
-    /* Pills de atributos en hero */
-    .hero-pills {
-      display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-    }
-    .hero-pill {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: rgba(255,255,255,0.85);
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      padding: 0.4rem 1rem;
-      border-radius: 100px;
-    }
-
-    /* ── SECCIÓN QUIÉNES SOMOS ── */
-    .nosotros {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 70vh;
-    }
-    .nosotros-img {
-      background-image: url('images/2.jpg');
-      background-size: cover;
-      background-position: top center;
-      min-height: 500px;
-    }
-    .nosotros-texto {
-      background: var(--verde);
-      padding: 5rem 4rem;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .etiqueta {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em;
-      text-transform: uppercase; margin-bottom: 1rem;
-    }
-    .nosotros-texto .etiqueta { color: var(--lima); }
-    .nosotros-texto h2 {
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      font-weight: 800; color: var(--blanco);
-      line-height: 1.1; margin-bottom: 0.5rem;
-    }
-    .nosotros-texto h2 span { color: var(--amarillo); }
-    .nosotros-subtitulo {
-      font-size: 1rem; font-weight: 600;
-      color: var(--amarillo); margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-    .nosotros-texto p {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.88rem; line-height: 1.8;
-      font-weight: 300; margin-bottom: 1rem;
-    }
-
-    /* ── SECCIÓN PRODUCTOS (INTRO) ── */
-    .productos-intro {
-      position: relative; overflow: hidden;
-      background-image: url('images/3.jpg');
-      background-size: cover;
-      background-position: center;
-      min-height: 60vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
-    }
-    .productos-intro::before {
-      content: ''; position: absolute; inset: 0;
-      background: rgba(27,94,59,0.75);
-    }
-    .productos-intro-texto {
-      position: relative; z-index: 1;
-      padding: 5rem 2rem;
-      max-width: 700px;
-    }
-    .productos-intro-texto .etiqueta { color: var(--lima); }
-    .productos-intro-texto h2 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      font-weight: 800; color: var(--blanco);
-      line-height: 1.05; margin-bottom: 1.25rem;
-    }
-    .productos-intro-texto h2 span { color: var(--amarillo); }
-    .productos-intro-texto p {
-      color: rgba(255,255,255,0.75);
-      font-size: 0.95rem; line-height: 1.8;
-      font-weight: 300;
-    }
-
-    /* ── TARJETAS DE PRODUCTO ── */
-    .productos-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
-
-    .producto {
-      position: relative; overflow: hidden;
-      min-height: 85vh;
-      display: flex; align-items: flex-end;
-      cursor: pointer;
-    }
-    .producto-bg {
-      position: absolute; inset: 0;
-      background-size: cover;
-      background-position: center top;
-      transition: transform 0.6s ease;
-    }
-    .producto:hover .producto-bg { transform: scale(1.04); }
-
-    .producto-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.1) 55%, transparent 100%);
-    }
-
-    .producto-info {
-      position: relative; z-index: 1;
-      padding: 2.5rem;
-      width: 100%;
-    }
-    .producto-nombre {
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 800; color: var(--blanco);
-      line-height: 1; margin-bottom: 0.4rem;
-    }
-    .producto-subtitulo {
-      font-size: 0.8rem; font-weight: 600;
-      letter-spacing: 0.05em;
-      margin-bottom: 1.25rem;
-    }
-    .producto-descripcion {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.82rem; line-height: 1.7;
-      font-weight: 300; margin-bottom: 1.25rem;
-      max-width: 420px;
-    }
-    .producto-beneficios {
-      display: flex; flex-wrap: wrap; gap: 0.5rem;
-    }
-    .beneficio-tag {
-      font-size: 0.68rem; font-weight: 600;
-      letter-spacing: 0.06em;
-      padding: 0.3rem 0.85rem;
-      border-radius: 100px;
-      background: rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.85);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    /* Colores por producto */
-    .prod-mango .producto-subtitulo { color: #F5C842; }
-    .prod-mora  .producto-subtitulo { color: #D4A0C8; }
-    .prod-cas   .producto-subtitulo { color: #A8C63D; }
-    .prod-maracuya .producto-subtitulo { color: #F5A623; }
-
-    /* ── INGREDIENTES / HIGHLIGHTS ── */
-    .highlights {
-      background: var(--crema);
-      padding: 6rem 3rem;
-    }
-    .highlights-inner {
-      max-width: 1100px; margin: 0 auto;
-    }
-    .highlights-header {
-      text-align: center; margin-bottom: 4rem;
-    }
-    .highlights-header .etiqueta { color: var(--verde-med); }
-    .highlights-header h2 {
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
-      font-weight: 800; color: var(--verde);
-      line-height: 1.1;
-    }
-    .highlights-header h2 span { color: var(--amarillo); }
-    .highlights-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-    .highlight-card {
-      background: var(--blanco);
-      border-radius: 1.5rem;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      border-bottom: 4px solid var(--verde);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .highlight-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(27,94,59,0.12);
-    }
-    .highlight-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
-    .highlight-card h3 {
-      font-size: 0.85rem; font-weight: 700;
-      color: var(--verde); margin-bottom: 0.5rem;
-      letter-spacing: 0.03em;
-    }
-    .highlight-card p {
-      font-size: 0.8rem; color: var(--gris);
-      line-height: 1.6; font-weight: 300;
-    }
-
-    /* ── CONTACTO ── */
-    .contacto {
-      position: relative; overflow: hidden;
-      background-image: url('images/8.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-    .contacto::before {
-      content: ''; position: absolute; inset: 0;
-      background: rgba(27,94,59,0.88);
-    }
-    .contacto-inner {
-      position: relative; z-index: 1;
-      max-width: 1100px; margin: 0 auto;
-      padding: 7rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: center;
-    }
-    .contacto .etiqueta { color: var(--lima); }
-    .contacto h2 {
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 800; color: var(--blanco);
-      line-height: 1.05; margin-bottom: 1rem;
-    }
-    .contacto h2 span { color: var(--amarillo); }
-    .contacto-lema {
-      font-size: 0.95rem; color: rgba(255,255,255,0.6);
-      font-weight: 300; line-height: 1.7;
-      font-style: italic;
-    }
-    .contacto-items {
-      display: flex; flex-direction: column; gap: 1.25rem;
-    }
-    .contacto-item {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1.25rem 1.5rem;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 1rem;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .contacto-item:hover { background: rgba(255,255,255,0.13); }
-    .contacto-item-icon {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: var(--amarillo);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; flex-shrink: 0;
-    }
-    .contacto-item-texto { display: flex; flex-direction: column; }
-    .contacto-item-label {
-      font-size: 0.65rem; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(255,255,255,0.45); margin-bottom: 0.15rem;
-    }
-    .contacto-item-valor {
-      font-size: 0.9rem; color: var(--blanco); font-weight: 500;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--texto);
-      padding: 2rem 3rem;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    footer p {
-      font-size: 0.75rem; color: rgba(255,255,255,0.3);
-      letter-spacing: 0.1em; text-transform: uppercase;
-    }
-    footer span { color: var(--amarillo); }
-
-    /* =============================================
-       RESPONSIVE – Breakpoints
-       1200px = pantallas grandes
-       900px  = tablet horizontal
-       768px  = tablet vertical
-       480px  = celular
-    ============================================= */
-
-    /* --- TABLET HORIZONTAL (hasta 1200px) --- */
-    @media (max-width: 1200px) {
-      .highlights-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .nosotros-texto {
-        padding: 4rem 3rem;
-      }
-    }
-
-    /* --- TABLET VERTICAL (hasta 900px) --- */
-    @media (max-width: 900px) {
-      nav {
-        padding: 1rem 1.5rem;
-      }
-      .nav-links {
-        gap: 1.25rem;
-      }
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 7rem 2rem 4rem;
-        text-align: center;
-      }
-      .hero-visual {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1px;
-      }
-      .hero-botones {
-        justify-content: center;
-      }
-      .nosotros {
-        grid-template-columns: 1fr;
-      }
-      .nosotros-img {
-        min-height: 380px;
-        background-position: center 20%;
-      }
-      .nosotros-texto {
-        padding: 3.5rem 2.5rem;
-      }
-      .productos-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .producto {
-        min-height: 60vh;
-      }
-      .contacto-inner {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        padding: 5rem 2.5rem;
-      }
-      .sobre-interior {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        padding: 5rem 2.5rem;
-      }
-      .sobre-imagen {
-        aspect-ratio: 16/7;
-        font-size: 5rem;
-      }
-    }
-
-    /* --- CELULAR (hasta 480px) --- */
-    @media (max-width: 480px) {
-      nav {
-        padding: 0.875rem 1.25rem;
-      }
-      .nav-links {
-        gap: 1rem;
-      }
-      .nav-links a {
-        font-size: 0.7rem;
-      }
-      .hero {
-        padding: 6rem 1.25rem 3rem;
-      }
-      .hero-visual {
-        grid-template-columns: 1fr;
-        gap: 1px;
-      }
-      .hero-pills {
-        gap: 0.5rem;
-      }
-      .hero-pill {
-        font-size: 0.65rem;
-      }
-      .nosotros-img {
-        min-height: 280px;
-      }
-      .nosotros-texto {
-        padding: 2.5rem 1.25rem;
-      }
-      .productos-grid {
-        grid-template-columns: 1fr;
-      }
-      .producto {
-        min-height: 70vh;
-      }
-      .producto-info {
-        padding: 1.75rem 1.25rem;
-      }
-      .seccion {
-        padding: 4rem 1.25rem;
-      }
-      .highlights {
-        padding: 4rem 1.25rem;
-      }
-      .highlights-grid {
-        grid-template-columns: 1fr;
-      }
-      .contacto-inner {
-        padding: 4rem 1.25rem;
-        gap: 2.5rem;
-      }
-      .sobre-interior {
-        padding: 4rem 1.25rem;
-      }
-      footer {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-        padding: 1.5rem 1.25rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
@@ -533,7 +28,7 @@
 
   <!-- HERO -->
   <section id="inicio" class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg"><img src="images/1.jpg" alt="Green Vibes jugos naturales" /></div>
     <div class="hero-contenido">
       <div class="hero-badge">Nutrition &amp; Health · Costa Rica</div>
       <h1>Nutrición funcional.<br><span>Sabor tropical.</span><br>Bienestar natural.</h1>
@@ -550,7 +45,7 @@
 
   <!-- QUIÉNES SOMOS -->
   <section id="nosotros" class="nosotros">
-    <div class="nosotros-img"></div>
+    <div class="nosotros-img"><img src="images/2.jpg" alt="Green Vibes quiénes somos" /></div>
     <div class="nosotros-texto">
       <span class="etiqueta">Quiénes somos</span>
       <h2>Functional Tropical<br><span>Wellness</span></h2>
@@ -564,6 +59,7 @@
 
   <!-- INTRO PRODUCTOS -->
   <div class="productos-intro">
+    <div class="productos-intro-bg"><img src="images/3.jpg" alt="Nuestros jugos funcionales" /></div>
     <div class="productos-intro-texto">
       <span class="etiqueta">Nuestros jugos funcionales</span>
       <h2>Cuatro sabores tropicales<br>diseñados para tu <span>bienestar</span></h2>
@@ -577,7 +73,7 @@
 
     <!-- MANGO -->
     <div class="producto prod-mango">
-      <div class="producto-bg" style="background-image: url('images/4.jpg');"></div>
+      <div class="producto-bg"><img src="images/4.jpg" alt="Jugo de Mango Green Vibes" /></div>
       <div class="producto-overlay"></div>
       <div class="producto-info">
         <h3 class="producto-nombre">Mango</h3>
@@ -594,7 +90,7 @@
 
     <!-- MORA -->
     <div class="producto prod-mora">
-      <div class="producto-bg" style="background-image: url('images/5.jpg');"></div>
+      <div class="producto-bg"><img src="images/5.jpg" alt="Jugo de Mora Green Vibes" /></div>
       <div class="producto-overlay"></div>
       <div class="producto-info">
         <h3 class="producto-nombre">Mora</h3>
@@ -610,7 +106,7 @@
 
     <!-- CAS -->
     <div class="producto prod-cas">
-      <div class="producto-bg" style="background-image: url('images/6.jpg');"></div>
+      <div class="producto-bg"><img src="images/6.jpg" alt="Jugo de Cas Green Vibes" /></div>
       <div class="producto-overlay"></div>
       <div class="producto-info">
         <h3 class="producto-nombre">Cas</h3>
@@ -626,7 +122,7 @@
 
     <!-- MARACUYÁ -->
     <div class="producto prod-maracuya">
-      <div class="producto-bg" style="background-image: url('images/7.jpg');"></div>
+      <div class="producto-bg"><img src="images/7.jpg" alt="Jugo de Maracuyá Green Vibes" /></div>
       <div class="producto-overlay"></div>
       <div class="producto-info">
         <h3 class="producto-nombre">Maracuyá</h3>
@@ -678,6 +174,7 @@
 
   <!-- CONTACTO -->
   <section id="contacto" class="contacto">
+    <div class="contacto-bg"><img src="images/8.jpg" alt="Contacto Green Vibes" /></div>
     <div class="contacto-inner">
       <div>
         <span class="etiqueta">Contáctanos</span>
