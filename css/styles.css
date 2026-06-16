@@ -350,8 +350,9 @@
     .contacto-inner {
       position: relative; z-index: 1;
       max-width: 1100px; margin: 0 auto;
-      padding: 7rem 3rem;
-      display: grid;
+      padding: 7rem 0.1rem;
+      display: flex;
+      justify-content: flex-end;
       grid-template-columns: 1fr 1fr;
       gap: 5rem; align-items: center;
     }
@@ -369,6 +370,8 @@
     }
     .contacto-items {
       display: flex; flex-direction: column; gap: 1.25rem;
+      width: 100%;
+      max-width: 500px;
     }
     .contacto-item {
       display: flex; align-items: center; gap: 1rem;
