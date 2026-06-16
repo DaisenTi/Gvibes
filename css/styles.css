@@ -25,7 +25,7 @@
     .nav-logo img { height: 48px; }
     .nav-links { list-style: none; display: flex; gap: 2rem; }
     .nav-links a {
-      color: rgba(255,255,255,0.85);
+      color: rgba(0, 0, 0, 0.85);
       text-decoration: none;
       font-size: 0.78rem;
       font-weight: 600;
@@ -53,7 +53,7 @@
      /* object-zoom: 1;      */     /* referencia visual */
       transform: scale(1);      /* ← sube este número para más zoom, bájalo para ver más */
       transform-origin: center center;
-      filter: brightness(0.45);
+    /*  filter: brightness(0.45); */
       display: block;
     }
     .hero-contenido {
