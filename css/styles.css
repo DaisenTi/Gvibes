@@ -19,8 +19,8 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       padding: 1rem 3rem;
       display: flex; justify-content: space-between; align-items: center;
-      background: rgba(27,94,59,0.95);
-      backdrop-filter: blur(10px);
+      background: transparent;
+      
     }
     .nav-logo img { height: 48px; }
     .nav-links { list-style: none; display: flex; gap: 2rem; }
@@ -127,31 +127,29 @@
       text-align: center;
     }
 
-    /* ── SECCIÓN QUIÉNES SOMOS ── */
+     /* ── SECCIÓN QUIÉNES SOMOS ── */
     .nosotros {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: stretch;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 26 / 9;
+      display: flex; align-items: center; justify-content: center;
     }
     .nosotros-img {
-      overflow: hidden;
-      position: relative;
-      /* imagen 16:9 en columna de 50% ancho = altura 28.125vw */
-      aspect-ratio: 16 / 9;
-      align-self: start;
-      width: 100%;
+      position: absolute; inset: 0;
     }
     .nosotros-img img {
       width: 100%; height: 100%;
       object-fit: cover;
       object-position: center center;
       display: block;
-      position: absolute; inset: 0;
     }
     .nosotros-texto {
-      background: var(--verde);
-      padding: 5rem 4rem;
-      display: flex; flex-direction: column; justify-content: center;
+      position: relative; z-index: 1;
+      background: rgba(27, 94, 59, 0.72);  /* verde semitransparente */
+      backdrop-filter: blur(6px);
+      padding: 3.5rem 4rem;
+      max-width: 620px;
+      width: 55%;
     }
     .etiqueta {
       font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em;
